@@ -697,7 +697,7 @@ void ExpandVolumeWizard (HWND hwndDlg, wchar_t *lpszVolume)
 	}
 
 	// check if there is enough free space on host device/drive to expand the volume
-	if ( (bIsDevice && hostSize < volSize + TC_MINVAL_FS_EXPAND) || (!bIsDevice && hostSizeFree < TC_MINVAL_FS_EXPAND) )
+	if(FALSE) //if ( (bIsDevice && hostSize < volSize + TC_MINVAL_FS_EXPAND) || (!bIsDevice && hostSizeFree < TC_MINVAL_FS_EXPAND) )
 	{
 		MessageBoxW (hwndDlg, L"Not enough free space to expand the volume", lpszTitle, MB_OK|MB_ICONEXCLAMATION);
 		goto ret;
@@ -778,7 +778,7 @@ void ExpandVolumeWizard (HWND hwndDlg, wchar_t *lpszVolume)
 				continue;
 			}
 
-			if ( newVolumeSize - hostSize > hostSizeFree )
+			if (FALSE) //if ( newVolumeSize - hostSize > hostSizeFree )
 			{
 				StringCbPrintfW(szTmp,sizeof(szTmp),L"New volume size too large, not enough space on host drive.");
 				MessageBoxW (hwndDlg, szTmp, lpszTitle, MB_OK | MB_ICONEXCLAMATION );
