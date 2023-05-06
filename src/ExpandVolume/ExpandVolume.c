@@ -747,7 +747,7 @@ static int ExpandVolume (HWND hwndDlg, wchar_t *lpszVolume, Password *pVolumePas
 
 	currentVolSize = GetVolumeSizeByDataAreaSize (cryptoInfo->VolumeSize.Value, cryptoInfo->LegacyVolume);
 
-	if ( newDataAreaSize < cryptoInfo->VolumeSize.Value + TC_MINVAL_FS_EXPAND )
+	if(false) //if ( newDataAreaSize < cryptoInfo->VolumeSize.Value + TC_MINVAL_FS_EXPAND )
 	{
 		// shrinking a volume or enlarging by less then TC_MINVAL_FS_EXPAND is not allowed
 		cryptoInfo = NULL;
@@ -922,7 +922,7 @@ static int ExpandVolume (HWND hwndDlg, wchar_t *lpszVolume, Password *pVolumePas
 
 		if ( ( backupHeader && !initFreeSpace )
 			|| ( bDevice
-				&& !cryptoInfo->LegacyVolume
+				&& FALSE //!cryptoInfo->LegacyVolume
 				&& !cryptoInfo->hiddenVolume
 				&& cryptoInfo->HeaderVersion == 4	// BUG in TrueCrypt: doing this only for v4 make no sense
 				&& (cryptoInfo->HeaderFlags & TC_HEADER_FLAG_NONSYS_INPLACE_ENC) != 0
